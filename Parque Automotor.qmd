@@ -1,0 +1,47 @@
+---
+title: "TITULO"
+subtitle: "SUBTITULO"
+date: today
+author: "Autor"
+format:
+  #pdf:
+  #  toc: true
+  #  toc-depth: 4
+  html:
+    toc: true
+    toc-depth: 4
+    toc-float: true
+    collapsed: false
+    smooth-scroll: true
+    number-sections: true
+    theme: cerulean
+    highlight: tango
+    keep-md: true
+    fig-height: 7
+    fig-width: 10
+  docx:
+    toc: true
+    toc-depth: 4
+editor:
+  output: console
+execute: 
+  echo: false
+  warning: false
+lang: es
+---
+
+# Seccion 1
+
+```{python}
+import pandas as pd
+import numpy as np
+from janitor import clean_names
+from dplython import *
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+
+```{python}
+datos = pd.read_excel("crecimiento_parque_automotor.xlsx",sheet_name="Cuentas")
+```
