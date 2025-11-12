@@ -43,5 +43,5 @@ import seaborn as sns
 
 
 ```{python}
-datos = pd.read_excel("crecimiento_parque_automotor.xlsx",sheet_name="Cuentas")
+data = pd.read_excel("crecimiento_parque_automotor.xlsx").clean_names() 
 ```
