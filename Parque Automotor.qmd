@@ -45,19 +45,24 @@ data = pd.read_excel("crecimiento_parque_automotor.xlsx").clean_names()
 data = DplyFrame(data)
 ```
 
-## Cantidad de vehículos registrados
+# Cantidad de vehículos registrados
 
-# Por municipio
+## Por municipio
 
 ```{python}
 vehiculos_municipio = data >> group_by(X.nombre_departamento,X.nombre_municipio) >> summarize(total_vehiculos = X.cantidad.sum()) >> arrange(X.nombre_departamento,X.nombre_municipio)
 ```
 
-# Tipo de vehículo por departamento
-
+## Tipo de vehículo por departamento
 
 ```{python}
 vehiculos_tipo = data >> group_by(X.nombre_departamento,X.nombre_de_la_clase) >> summarize(total_vehiculos = X.cantidad.sum()) >> arrange(X.nombre_departamento,X.nombre_de_la_clase)
 
 vehiculos_tipo_pivot = vehiculos_tipo.pivot(index="nombre_departamento", columns="nombre_de_la_clase", values="total_vehiculos").fillna(0).astype(int)
 ```
+
+#Esto es lo que llevo hecho, ahí puedes ver, ahora te voy a enseñar como actualizar para yo ver tus cambios :D....ok, gracias... el titulo con doble # y creo que el subtitulo con 3 #
+#mientras eso actualiza te enseño a usar git, primero, cuando haces algo en el código y ya lo quieres subir o guardar puedes hacer de dos formas.
+#1. vas a la izquierda al icono raro que no sé que es, el que está debajo de la lupa, ahí te dice los cambios que haz realizado, cuando tu oprimes Ctrl + S, guardas el archivos y si ves que arriba en el nombre aparece una M, eso significa que esos cambios nos los has subido, solo los tienes tú. Ahí donde dice message puedes poner un comentario corto de los cambios que hiciste. Y le das donde dice commit.
+#No sé que pasó jajaja, ahí es donde entra el metodo dos, el que yo uso
+#metodo 2, comandos, solo tienes que poner 3 comandos: git add . (Este comando agrega todos los cambios que has hecho, si lleva el punto), git commit -m "Mensaje" (este comando agrega el mensaje de los cambios que hiciste, ejemplo, metiste una nueva tabla entonces pones nueva tabla), git push (este comando sube los cambios a la nube)
