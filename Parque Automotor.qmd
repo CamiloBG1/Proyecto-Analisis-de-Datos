@@ -66,3 +66,7 @@ vehiculos_tipo_pivot = vehiculos_tipo.pivot(index="nombre_departamento", columns
 #1. vas a la izquierda al icono raro que no sé que es, el que está debajo de la lupa, ahí te dice los cambios que haz realizado, cuando tu oprimes Ctrl + S, guardas el archivos y si ves que arriba en el nombre aparece una M, eso significa que esos cambios nos los has subido, solo los tienes tú. Ahí donde dice message puedes poner un comentario corto de los cambios que hiciste. Y le das donde dice commit.
 #No sé que pasó jajaja, ahí es donde entra el metodo dos, el que yo uso
 #metodo 2, comandos, solo tienes que poner 3 comandos: git add . (Este comando agrega todos los cambios que has hecho, si lleva el punto), git commit -m "Mensaje" (este comando agrega el mensaje de los cambios que hiciste, ejemplo, metiste una nueva tabla entonces pones nueva tabla), git push (este comando sube los cambios a la nube)
+
+
+#Ejemplo de prueba
+#Hola este es un ejemplo de prueba para ver si funciona bien el git
