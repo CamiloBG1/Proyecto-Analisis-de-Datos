@@ -30,8 +30,6 @@ execute:
 lang: es
 ---
 
-# Seccion 1
-
 ```{python}
 import pandas as pd
 import numpy as np
@@ -41,7 +39,25 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
+```{python}
+data = pd.read_excel("crecimiento_parque_automotor.xlsx").clean_names()
+
+data = DplyFrame(data)
+```
+
+## Cantidad de vehículos registrados
+
+# Por municipio
 
 ```{python}
-data = pd.read_excel("crecimiento_parque_automotor.xlsx").clean_names() 
+vehiculos_municipio = data >> group_by(X.nombre_departamento,X.nombre_municipio) >> summarize(total_vehiculos = X.cantidad.sum()) >> arrange(X.nombre_departamento,X.nombre_municipio)
+```
+
+# Tipo de vehículo por departamento
+
+
+```{python}
+vehiculos_tipo = data >> group_by(X.nombre_departamento,X.nombre_de_la_clase) >> summarize(total_vehiculos = X.cantidad.sum()) >> arrange(X.nombre_departamento,X.nombre_de_la_clase)
+
+vehiculos_tipo_pivot = vehiculos_tipo.pivot(index="nombre_departamento", columns="nombre_de_la_clase", values="total_vehiculos").fillna(0).astype(int)
 ```
